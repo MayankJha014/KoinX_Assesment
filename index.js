@@ -70,12 +70,12 @@ app.get("/stats", async (req, res) => {
 });
 
 // Using https://console.cron-job.org/ to run this cron job
-app.get("/start-cron", (req, res) => {
+app.get("/start-cron", async (req, res) => {
   console.log("Running cron job to fetch Bitcoin and Ethereum data...");
 
-  fetchAndSaveCryptoData("bitcoin");
-  fetchAndSaveCryptoData("ethereum");
-  fetchAndSaveCryptoData("matic-network");
+  await fetchAndSaveCryptoData("bitcoin");
+  await fetchAndSaveCryptoData("ethereum");
+  await fetchAndSaveCryptoData("matic-network");
 
   res.status(200).json({ message: "Cron job started successfully." });
 });
