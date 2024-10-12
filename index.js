@@ -69,20 +69,26 @@ app.get("/stats", async (req, res) => {
   }
 });
 
-app.get("/start-cron", (req, res) => {
-  if (cryptoCronJob) {
-    return res.status(400).json({ message: "Cron job is already running." });
-  }
+// app.get("/start-cron", (req, res) => {
+//   if (cryptoCronJob) {
+//     return res.status(400).json({ message: "Cron job is already running." });
+//   }
 
-  cryptoCronJob = cron.schedule("*/10 * * * * *", () => {
-    console.log("Running cron job to fetch Bitcoin and Ethereum data...");
+//   cryptoCronJob = cron.schedule("*/10 * * * * *", () => {
+//     console.log("Running cron job to fetch Bitcoin and Ethereum data...");
 
-    fetchAndSaveCryptoData("bitcoin");
-    fetchAndSaveCryptoData("ethereum");
-    fetchAndSaveCryptoData("matic-network");
-  });
+//     fetchAndSaveCryptoData("bitcoin");
+//     fetchAndSaveCryptoData("ethereum");
+//     fetchAndSaveCryptoData("matic-network");
+//   });
 
-  res.status(200).json({ message: "Cron job started successfully." });
+//   res.status(200).json({ message: "Cron job started successfully." });
+// });
+
+app.use("/start-cron", () => {
+  fetchAndSaveCryptoData("bitcoin");
+  fetchAndSaveCryptoData("ethereum");
+  fetchAndSaveCryptoData("matic-network");
 });
 
 app.get("/stop-cron", (req, res) => {
