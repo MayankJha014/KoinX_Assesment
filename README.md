@@ -1,4 +1,4 @@
-# Crypto Price Tracker
+# Crypto Price Tracker - KoinX Assignment
 
 This is a Node.js application that fetches cryptocurrency data and stores it in a MongoDB database. The application provides several API endpoints for fetching crypto statistics, starting and stopping cron jobs, and calculating the standard deviation of prices.
 
@@ -88,7 +88,6 @@ GET /deviation?coin=bitcoin
 3. Create a `.env` file in the root directory and add your MongoDB URI and any other environment variables needed:
 
    ```plaintext
-   PORT=3000
    DB_URI=mongodb://localhost:27017/cryptoData
    CG_API_KEY=your_api_key
    ```
@@ -99,11 +98,7 @@ GET /deviation?coin=bitcoin
    npm start
    ```
 
-## Usage
+## Screenshots
 
-- Use a tool like Postman or cURL to interact with the API endpoints.
-- Start the cron jobs using the appropriate endpoints to fetch cryptocurrency data periodically.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+![image](https://github.com/user-attachments/assets/277252ae-a15e-4627-8bd7-86f6dc062b72)
+![image](https://github.com/user-attachments/assets/4cf8cade-b19a-4822-a6c1-db54b6a1b07e)
