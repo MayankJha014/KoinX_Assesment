@@ -5,7 +5,7 @@ const cryptoSchema = new Schema({
   coin: {
     type: String,
     required: true,
-    enum: ["bitcoin", "ethereum", "polygon"], // Restrict to these values
+    enum: ["bitcoin", "ethereum", "matic-network"], // Restrict to these values
   },
   price: {
     type: Number,
