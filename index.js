@@ -74,7 +74,7 @@ app.get("/start-cron", (req, res) => {
     return res.status(400).json({ message: "Cron job is already running." });
   }
 
-  cryptoCronJob = cron.schedule("0 */2 * * *", () => {
+  cryptoCronJob = cron.schedule("*/10 * * * * *", () => {
     console.log("Running cron job to fetch Bitcoin and Ethereum data...");
 
     fetchAndSaveCryptoData("bitcoin");
