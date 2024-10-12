@@ -4,17 +4,20 @@ import mongoose from "mongoose";
 import Crypto from "./schema.js";
 import cron from "node-cron";
 import { std } from "mathjs";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
-const DB =
-  "mongodb+srv://mayankjha0330:mayank@cluster0.3tm9t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const DB = process.env.DB;
+console.log(DB);
 
 let cryptoCronJob;
 
 const headers = {
   accept: "application/json",
-  "x-cg-demo-api-key": "CG-4Pi25Lvw76zCuRM19e78UVrr", // Replace with your actual API key
+  "x-cg-demo-api-key": process.env.api_key, // Replace with your actual API key
 };
 
 const fetchAndSaveCryptoData = async (coin) => {
