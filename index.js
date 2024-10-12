@@ -71,10 +71,6 @@ app.get("/stats", async (req, res) => {
 
 // Using https://console.cron-job.org/ to run this cron job
 app.get("/start-cron", (req, res) => {
-  if (cryptoCronJob) {
-    return res.status(400).json({ message: "Cron job is already running." });
-  }
-
   console.log("Running cron job to fetch Bitcoin and Ethereum data...");
 
   fetchAndSaveCryptoData("bitcoin");
